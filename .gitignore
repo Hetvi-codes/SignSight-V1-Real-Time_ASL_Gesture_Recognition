@@ -10,27 +10,34 @@ build/
 
 # Virtual environments
 signy/
+signn/
 venv/
 env/
 .venv/
+ENV/
 
 # Environment variables
 .env
+.env.local
 
-# Large data files
+# Large data files and numpy arrays
 data/sequences/
 data/X_*.npy
 data/y_*.npy
+*.npy
 
-# Trained models
+# Trained models & large binaries (>100MB / GitHub limits)
 models/
 checkpoints/
+*.keras
+*.h5
+*.task
 
-# TensorBoard logs
-logs/tensorboard/
-
-# Jupyter checkpoints
-.ipynb_checkpoints/
+# Video files (Too large for Git)
+*.mp4
+*.avi
+*.mov
+*.mkv
 
 # Datasets (Too large - do not upload)
 WASL_kggle_ds/
@@ -38,10 +45,22 @@ WASL_kggl_ds*/
 dataset_phase1/
 Dataset_v1/
 
-# Frontend dependencies (Created locally via npm install)
+# TensorBoard logs & training histories
+logs/tensorboard/
+*.tfevents.*
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Frontend dependencies and builds
 node_modules/
 frontend/node_modules/
 frontend/build/
+.pnp
+.pnp.js
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # IDE & OS
 .vscode/
