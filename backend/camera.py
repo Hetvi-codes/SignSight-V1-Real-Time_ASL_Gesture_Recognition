@@ -1,13 +1,11 @@
 import cv2
 import numpy as np
 import tensorflow as tf
-# pyrefly: ignore [missing-import]
 import mediapipe as mp
 import json
 import time
 import threading
 from collections import deque
-# pyrefly: ignore [missing-import]
 from mediapipe.tasks import python as mp_python
 
 from backend.config import (

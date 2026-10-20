@@ -7,10 +7,8 @@ from backend.config import ROOT_DIR, ensure_models
 from backend.routes import router
 import backend.state as state
 
-# Initialize FastAPI Application
 app = FastAPI(title="SignSight API Real-Time API")
 
-# Setup CORS Middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -19,7 +17,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Register API & Video Routes
 app.include_router(router)
 
 @app.get("/")
@@ -30,7 +27,6 @@ def serve_dashboard():
     with open(index_path, "r", encoding="utf-8") as f:
         return HTMLResponse(f.read())
 
-# Mount Frontend Static Assets
 frontend_dir = ROOT_DIR / "frontend"
 if frontend_dir.exists():
     app.mount("/frontend", StaticFiles(directory=str(frontend_dir)), name="static")
